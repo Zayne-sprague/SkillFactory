@@ -9,15 +9,12 @@
   <a href="https://huggingface.co/SkillFactory">
         <img alt="Static Badge" src="https://img.shields.io/badge/huggingface-SkillFactory-%23FFD21E?logo=huggingface&link=https%3A%2F%2Fhuggingface.co%2FSkillFactory">
   </a>
-  <a href="https://github.com/allenai/OLMo-core/tree/main/src/examples">
-    <img alt="Examples" src="https://img.shields.io/badge/API-examples-994B00">
-  </a>
 
   <a href="https://github.com/Zayne-sprague/SkillFactory/blob/main/LICENSE">
     <img alt="GitHub License" src="https://img.shields.io/github/license/allenai/OLMo">
   </a>
 
-  <a href="https://arxiv.org/pdf/2501.00656.pdf">
+  <a href="">
     <img alt="Paper URL" src="https://img.shields.io/badge/arxiv-2402.00838-orange">
   </a>
 </p>
