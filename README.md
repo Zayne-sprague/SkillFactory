@@ -1,10 +1,14 @@
 <div align="center">
-  <!-- <img src="assets/logo_dark.png" width="300"/> -->
-  <img src="assets/logo_dark.png" alt="SkillFactory Logo" width="380" style="margin-left:'auto' margin-right:'auto' display:'block'"/>
-  <br>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logo_dark.png">
+      <source media="(prefers-color-scheme: light)" srcset="assets/logo_white.png">
+      <img alt="My Logo" src="assets/logo.png"  width="720" style="margin-left:'auto' margin-right:'auto' display:'block'">
+    </picture>
+    <br>
   <h1>SkillFactory: Self-Distillation for Learning Cognitive Behaviors</h1>
   <h4>Scripts for creating cognitive behavior primed SFT data</h4>
 </div>
+  
 <p align="center">
   <a href="https://huggingface.co/SkillFactory">
         <img alt="Static Badge" src="https://img.shields.io/badge/huggingface-SkillFactory-%23FFD21E?logo=huggingface&link=https%3A%2F%2Fhuggingface.co%2FSkillFactory">
