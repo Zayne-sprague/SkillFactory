@@ -1,6 +1,6 @@
 <div align="center">
-  <!-- <img src="assets/logo3.png" width="300"/> -->
-  <img src="assets/logo3.png" alt="SkillFactory Logo" width="380" style="margin-left:'auto' margin-right:'auto' display:'block'"/>
+  <!-- <img src="assets/logo4.png" width="300"/> -->
+  <img src="assets/logo4.jpeg" alt="SkillFactory Logo" width="380" style="margin-left:'auto' margin-right:'auto' display:'block'"/>
   <br>
   <h1>SkillFactory: Self-Distillation for Learning Cognitive Behaviors</h1>
   <h4>Scripts for creating cognitive behavior primed SFT data</h4>
