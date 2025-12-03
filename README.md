@@ -1,7 +1,7 @@
 <div align="center">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/logo_dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="assets/logo_light.png">
+      <source media="(prefers-color-scheme: light)" srcset="assets/logo_light2.png">
       <img alt="My Logo" src="assets/logo.png"  width="720" style="margin-left:'auto' margin-right:'auto' display:'block'">
     </picture>
     <br>
@@ -169,5 +169,3 @@ Our reward function extracted text inside `<answer>` tags and checked for equiva
   year={2025}
 }
 ```
-
-## Acknowledgements
