@@ -1,6 +1,6 @@
 <div align="center">
-  <!-- <img src="assets/logo4.png" width="300"/> -->
-  <img src="assets/logo4.jpeg" alt="SkillFactory Logo" width="380" style="margin-left:'auto' margin-right:'auto' display:'block'"/>
+  <!-- <img src="assets/logo_dark.png" width="300"/> -->
+  <img src="assets/logo_dark.png" alt="SkillFactory Logo" width="380" style="margin-left:'auto' margin-right:'auto' display:'block'"/>
   <br>
   <h1>SkillFactory: Self-Distillation for Learning Cognitive Behaviors</h1>
   <h4>Scripts for creating cognitive behavior primed SFT data</h4>
@@ -81,10 +81,80 @@ For SFT training, you can create the SFT dataset via `sft_data_creation.py` whic
 
 Once done, you can use the template yaml file in `examples/llamafactory_sft_example.yaml` for training with LLaMA-Factory.
 
-## VeRL
+## Verl
 
+Here is an example command we used to train our models with Verl
 
+```bash
+python -m verl.trainer.main_ppo \
+  \
+  # === Trainer / run config ===
+  trainer.total_epochs=50 \
+  trainer.save_freq=25 \
+  trainer.test_freq=25 \
+  trainer.val_before_train=True \
+  trainer.logger=[console,wandb] \
+  trainer.project_name=SkillFactory \
+  trainer.experiment_name=experiment_name \
+  trainer.nnodes=1 \
+  trainer.n_gpus_per_node=4 \
+  trainer.default_local_dir=/path/to/verl/checkpoints \
+  \
+  # === Algorithm (PPO / GRPO etc.) ===
+  algorithm.adv_estimator=grpo \
+  algorithm.kl_ctrl.kl_coef=0.001 \
+  \
+  # === Data ===
+  data.train_files=/path/to/data/train.parquet \
+  data.val_files=/path/to/data/val.parquet \
+  data.train_batch_size=256 \
+  data.max_prompt_length=512 \
+  data.max_response_length=4096 \
+  \
+  # === Rollout config ===
+  actor_rollout_ref.rollout.n=16 \
+  actor_rollout_ref.rollout.max_num_batched_tokens=16384 \
+  actor_rollout_ref.rollout.max_num_seqs=2048 \
+  actor_rollout_ref.rollout.tensor_model_parallel_size=1 \
+  actor_rollout_ref.rollout.gpu_memory_utilization=0.8 \
+  actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=2 \
+  actor_rollout_ref.rollout.dtype=bfloat16 \
+  \
+  # === Actor / ref model optimization ===
+  actor_rollout_ref.actor.optim.lr=1e-06 \
+  actor_rollout_ref.actor.ppo_mini_batch_size=32 \
+  actor_rollout_ref.actor.ppo_micro_batch_size_per_gpu=1 \
+  actor_rollout_ref.ref.log_prob_micro_batch_size_per_gpu=2 \
+  actor_rollout_ref.actor.strategy=fsdp2 \
+  actor_rollout_ref.actor.fsdp_config.forward_prefetch=True \
+  actor_rollout_ref.ref.fsdp_config.forward_prefetch=True \
+  \
+  # === Policy / critic models ===
+  actor_rollout_ref.model.path=/path/to/prefetched_model \
+  actor_rollout_ref.model.enable_gradient_checkpointing=True \
+  actor_rollout_ref.model.enable_activation_offload=True \
+  actor_rollout_ref.model.use_remove_padding=True \
+  actor_rollout_ref.model.trust_remote_code=True \
+  \
+  critic.model.path=/path/to/prefetched_model \
+  critic.optim.lr=1e-05 \
+  critic.ppo_micro_batch_size_per_gpu=1 \
+  critic.model.trust_remote_code=True \
+  \
+  # === Reward model / custom reward ===
+  reward_model.reward_manager=batch \
+  reward_model.launch_reward_fn_async=True \
+  reward_model.model.fsdp_config.forward_prefetch=True \
+  custom_reward_function.name=compute_score_batch \
+  custom_reward_function.path=/path/to/verl/rewards_fn \
+  \
+  # === Hydra output dirs ===
+  hydra.run.dir=/path/to/workflow_out/hydra \
+  hydra.output_subdir=null \
+  hydra.job.chdir=False
+  ```
 
+Our reward function extracted text inside `<answer>` tags and checked for equivalence of a gold label. This is very similar to the examples given by the verl repo.
 
 ## Citation
 ```
