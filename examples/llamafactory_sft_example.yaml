@@ -1,0 +1,40 @@
+dataset: your_dataset
+model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+
+deepspeed: LLaMA-Factory/examples/deepspeed/ds_z2_config.json
+output_dir: /tmp/skillfactory_outputs/
+
+run_name: SkillFactory
+
+adam_beta1: 0.9
+adam_beta2: 0.95
+bf16: true
+cutoff_len: 16384
+dataloader_num_workers: 0
+ddp_timeout: 180000000
+disable_tqdm: false
+do_train: true
+enable_masked_ranges: false
+finetuning_type: full
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+learning_rate: 1.0e-06
+logging_steps: 10
+lr_scheduler_type: cosine
+max_samples: 1000000
+num_train_epochs: 1
+overwrite_cache: true
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+plot_loss: true
+preprocessing_num_workers: 1
+save_only_model: true
+save_steps: 100000
+save_strategy: steps
+save_total_limit: 5
+
+stage: sft
+template: qwen
+trust_remote_code: true
+warmup_ratio: 0.05
+weight_decay: 0.0001

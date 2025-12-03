@@ -1,0 +1,4 @@
+argparse
+transformers==4.52.3
+datasets==4.0.0
+dataclasses
