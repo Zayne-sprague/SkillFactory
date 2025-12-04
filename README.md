@@ -1,31 +1,78 @@
 <div align="center">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="assets/logo_dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="assets/logo_light2.png">
-      <img alt="My Logo" src="assets/logo.png"  width="720" style="margin-left:'auto' margin-right:'auto' display:'block'">
+      <source media="(prefers-color-scheme: light)" srcset="assets/logo_light.png">
+      <img alt="My Logo" src="assets/logo_light.png"  width="450" style="margin-left:'auto' margin-right:'auto' display:'block'">
     </picture>
     <br>
   <h1>SkillFactory: Self-Distillation for Learning Cognitive Behaviors</h1>
   <h4>Scripts for creating cognitive behavior primed SFT data</h4>
 </div>
   
+<!-- Main Links -->
 <p align="center">
   <a href="https://huggingface.co/SkillFactory">
-        <img alt="Static Badge" src="https://img.shields.io/badge/huggingface-SkillFactory-%23FFD21E?logo=huggingface&link=https%3A%2F%2Fhuggingface.co%2FSkillFactory">
+    <img alt="HuggingFace" src="https://img.shields.io/badge/%F0%9F%A4%97_HuggingFace-SkillFactory-FFD21E?style=for-the-badge">
   </a>
-
-  <a href="https://github.com/Zayne-sprague/SkillFactory/blob/main/LICENSE">
-    <img alt="GitHub License" src="https://img.shields.io/github/license/allenai/OLMo">
-  </a>
-
+  &nbsp;
   <a href="">
-    <img alt="Paper URL" src="https://img.shields.io/badge/arxiv-2402.00838-orange">
+    <img alt="Paper" src="https://img.shields.io/badge/arXiv-2402.00838-b31b1b?style=for-the-badge&logo=arxiv">
+  </a>
+  &nbsp;
+  <a href="https://github.com/Zayne-sprague/SkillFactory/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/allenai/OLMo?style=for-the-badge">
+  </a>
+</p>
+
+<!-- Datasets -->
+<p align="center">
+  <b>Datasets</b><br>
+  <a href="https://huggingface.co/collections/SkillFactory/sft-training-datasets">
+    <img alt="SFT Training Datasets" src="https://img.shields.io/badge/SFT_Training_Datasets-4C8BF5?style=flat-square&logo=huggingface&logoColor=white">
+  </a>
+  &nbsp;
+  <a href="https://huggingface.co/collections/SkillFactory/other-datasets">
+    <img alt="Other Datasets" src="https://img.shields.io/badge/Other_Datasets-4C8BF5?style=flat-square&logo=huggingface&logoColor=white">
+  </a>
+</p>
+
+<!-- Models -->
+<p align="center">
+  <b>Models</b><br>
+  <a href="https://huggingface.co/collections/SkillFactory/models-trained-on-countdown3arg">
+    <img alt="Countdown Models" src="https://img.shields.io/badge/Countdown_3arg_Trained-8B5CF6?style=flat-square&logo=huggingface&logoColor=white">
+  </a>
+  &nbsp;
+  <a href="https://huggingface.co/collections/SkillFactory/models-trained-on-openthoughts">
+    <img alt="OpenThoughts Models" src="https://img.shields.io/badge/OpenThoughts_Trained-8B5CF6?style=flat-square&logo=huggingface&logoColor=white">
+  </a>
+  &nbsp;
+  <a href="https://huggingface.co/collections/SkillFactory/ablation-models">
+    <img alt="Ablation Models" src="https://img.shields.io/badge/Ablation_Models-8B5CF6?style=flat-square&logo=huggingface&logoColor=white">
+  </a>
+</p>
+
+<!-- Evaluations -->
+<p align="center">
+  <b>Evaluations</b><br>
+  <a href="https://huggingface.co/collections/SkillFactory/evals-models-trained-on-countdown3arg">
+    <img alt="Countdown Evals" src="https://img.shields.io/badge/Countdown_3arg_Model_Evals-10B981?style=flat-square&logo=huggingface&logoColor=white">
+  </a>
+  &nbsp;
+  <a href="https://huggingface.co/collections/SkillFactory/evals-models-trained-on-openthoughts">
+    <img alt="OpenThoughts Evals" src="https://img.shields.io/badge/OpenThoughts_Model_Evals-10B981?style=flat-square&logo=huggingface&logoColor=white">
+  </a>
+  &nbsp;
+  <a href="https://huggingface.co/collections/SkillFactory/budget-forcing-evaluations">
+    <img alt="Budget Forcing Evals" src="https://img.shields.io/badge/Budget_Forcing_Evals-10B981?style=flat-square&logo=huggingface&logoColor=white">
   </a>
 </p>
 
 ---
 
-This is the official code for the paper [SkillFactory: Self-Distillation for Learning Cognitive Behaviors](). In this repo, we provide the code for extracting reflections and verification data and reformatting them into SkillFactory traces.
+This is the official code for the paper [SkillFactory: Self-Distillation for Learning Cognitive Behaviors](https://arxiv.org/abs/2512.04072). In this repo, we provide the code for extracting reflections and verification data and reformatting them into SkillFactory traces.
+
+Additionally, all links to all models, evaluations, training datasets, and more can be found in our Huggingface org, links above!
 
 ![SkillFactory Overview](assets/fig1.png)
 
@@ -41,19 +88,29 @@ pip install -r requirements.txt
 ### Example Data Creation Script
 ```bash
 # This runs data creation with reflection traces using default parameters
-bash examples/reflection.sh --input-dataset TAUR-dev/9_8_25__countdown_3arg__sft_data_multiprompts_reflections --output-dataset TAUR-dev/skillfactory_sft_countdown_3arg
+bash examples/example.sh --input-dataset SkillFactory/RAW_DATA-countdown3args-Qwen2.5-1.5B-Instruct --output-dataset SFT-TrainingData-Example_Output_Repo
 
 # You can also specify custom input and output datasets:
-bash examples/reflection.sh --input-dataset "your-input-dataset" --output-dataset "your-output-dataset"
+bash examples/example.sh --input-dataset "your-input-dataset" --output-dataset "your-output-dataset"
 
 # Or use short flags:
-bash examples/reflection.sh -i "your-input-dataset" -o "your-output-dataset"
+bash examples/example.sh -i "your-input-dataset" -o "your-output-dataset"
 ```
 
 ## SkillFactory Data Creation
 Our data creation code is provided in [skill_factory/sft_data_creation.py](skill_factory/sft_data_creation.py), and we have example scripts in [examples/](examples/).
 
-For an example of what the dataset should look like, see `TAUR-dev/9_8_25__countdown_3arg__sft_data_multiprompts_reflections`.
+For an example of what the dataset should look like, see [`SkillFactory/RAW_DATA-countdown3args-Qwen2.5-1.5B-Instruct`](https://huggingface.co/datasets/SkillFactory/RAW_DATA-openthoughts-Qwen2.5-7B-Instruct).
+
+### Dataset Schema
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `model_responses__example_annotation` | `string` | A single model generation that attempts to answer the question. Must contain `<answer>` tags with the final answer. |
+| `model_responses__example_annotation__eval_is_correct` | `bool[]` | Single-element array indicating whether the response was correct (`True`) or incorrect (`False`). |
+| `model_responses__mutated_prompts_reflection` | `string[]` | Array of N reflection strings, each containing `<verdict>Correct</verdict>` or `<verdict>Incorrect</verdict>` tags. These are paired with the eval column to filter for reflections that correctly identify response validity. |
+| `prompt_type` | `string` *(optional)* | Identifier for the prompt variant used. Useful when generating multiple responses per question with different prompts (up to 8 variants) to avoid oversampling. |
+
 
 ## Training
 Our SFT was performed using [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) and our RL was performed using [verl
