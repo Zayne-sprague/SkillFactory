@@ -18,8 +18,8 @@
     <img alt="GitHub License" src="https://img.shields.io/github/license/allenai/OLMo">
   </a>
 
-  <a href="">
-    <img alt="Paper URL" src="https://img.shields.io/badge/arxiv-2402.00838-orange">
+  <a href="https://arxiv.org/abs/2512.04072">
+    <img alt="Paper URL" src="https://img.shields.io/badge/arxiv-2512.04072-orange">
   </a>
 </p>
 
