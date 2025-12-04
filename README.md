@@ -16,7 +16,7 @@
   </a>
   &nbsp;
   <a href="https://arxiv.org/abs/2512.04072">
-    <img alt="Paper URL" src="https://img.shields.io/badge/arxiv-2512.04072-orange">
+    <img alt="Paper" src="https://img.shields.io/badge/arXiv-2512.04072-b31b1b?style=for-the-badge&logo=arxiv">
   </a>
   &nbsp;
   <a href="https://github.com/Zayne-sprague/SkillFactory/blob/main/LICENSE">
