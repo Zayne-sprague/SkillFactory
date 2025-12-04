@@ -15,8 +15,8 @@
     <img alt="HuggingFace" src="https://img.shields.io/badge/%F0%9F%A4%97_HuggingFace-SkillFactory-FFD21E?style=for-the-badge">
   </a>
   &nbsp;
-  <a href="">
-    <img alt="Paper" src="https://img.shields.io/badge/arXiv-2402.00838-b31b1b?style=for-the-badge&logo=arxiv">
+  <a href="https://arxiv.org/abs/2512.04072">
+    <img alt="Paper URL" src="https://img.shields.io/badge/arxiv-2512.04072-orange">
   </a>
   &nbsp;
   <a href="https://github.com/Zayne-sprague/SkillFactory/blob/main/LICENSE">
