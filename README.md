@@ -222,7 +222,7 @@ Our reward function extracted text inside `<answer>` tags and checked for equiva
 @article{sprague2025skillfactory,
   title={SkillFactory: Self-Distillation for Learning Cognitive Behaviors},
   author={Sprague, Zayne and Lu, Jack and Wadhwa, Manya and Keh, Sedrick and Ren, Mengye and Durrett, Greg},
-  journal={arXiv preprint (insert-arxiv-number-here)},
+  journal={arXiv preprint 2512.04072},
   year={2025}
 }
 ```
